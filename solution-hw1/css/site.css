@@ -1,8 +1,30 @@
 body{
     font-size:24px;
-    padding-left: 48px;
-    padding-right: 48px;
 }
+
+nav ul{
+    list-style-type: none; 
+    text-align: center;
+    font-size: 24px;
+}
+
+/* highlight the current tab in the nav bar  */
+.highlight-tab{
+    font-weight: bold;
+    background-color: yellow;
+}
+/* ????????? if it is inside ul &li, it won't work */
+
+#logo{
+    width: 400px;
+}
+
+/* the division line that creats sections  */
+#line{
+    width:1200px;
+    height: 60px;
+}
+
 
 main {
     margin-top: 64px; /*so main content doesn't overlap with nav bar*/
@@ -13,16 +35,7 @@ h1{
     font-size: 32px;
 }
 
-#logo{
-    width: 400px;
-}
-
-nav ul{
-    list-style-type: none; 
-    text-align: center;
-    font-size: 24px;
-}
-
+/* in the gallery page */
 .product-card {
     text-align:left;
     margin: auto;
@@ -32,50 +45,61 @@ nav ul{
     background-color: yellow;
     font-weight: bold;
     cursor: pointer;
-}
-/* how to make only the product name bold */
+} /* ?????? how to make only the product name bold */
 
-
-.highlight-tab{
-    font-weight: bold;
-    background-color: yellow;
-}
-/* if it is inside ul &li, it won't work */
 
 img.gallery {
     width: 400px;
     height: 400px
 }
 
+/* in the detail page */
 img.detail{
+    display:block;
+    margin:12px auto;
     width: 600px;
     height: 600px;
     border: 4px solid;
     border-color: black;
-    margin:12px
 }
+/* ???????is it okay to have the same tag but different class name? */
 
-
-p.detail{
+.detail-description{
     width: 280px;
     text-align: left;
     margin: auto;
 }
 
-.dropdown{
+.dropdown-block{
+    width: 280px;
+    margin: auto;
 }
 
 .price-button{
-    /* display: inline-block; */
+    /* display: block;
+    margin: auto; */
 }
 
+/*in the shopping cart page */
 img.checkout{
     width: 200px;
     height: 200px;
     border: 4px solid;
     border-color: black;
-    margin:12px
 }
+
+/* the "remove" link in cart */
+p.clickable{
+    text-decoration: underline;
+    font-size: 16px;
+    margin: 0px;
+    font-weight: bold;
+}
+
+.checkout-img{
+    margin-bottom: 12px;
+}
+
 
 .item-checkout{
     text-align: center;
@@ -98,4 +122,6 @@ p{
 3. how to align centered while left
 
 4. can I use flex box?
+
+5. the line in UI
 */
