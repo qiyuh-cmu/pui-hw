@@ -28,6 +28,20 @@ nav ul{
     margin: auto;
 }
 
+.product-card:hover {
+    background-color: yellow;
+    font-weight: bold;
+    cursor: pointer;
+}
+/* how to make only the product name bold */
+
+
+.highlight-tab{
+    font-weight: bold;
+    background-color: yellow;
+}
+/* if it is inside ul &li, it won't work */
+
 img.gallery {
     width: 400px;
     height: 400px
@@ -69,6 +83,8 @@ img.checkout{
 
 button{
     text-align:center;
+    background-color: yellow;
+    font-size: 24px;
 }
 /* 
 1. the following won't work if removing them in p.detail
