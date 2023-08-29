@@ -2,14 +2,40 @@
 <html lang="en">
   <meta charset="UTF-8">
   <title>Shopping Cart</title>
+  <link rel="stylesheet" type="text/css" href="css/site.css" media="all"/>
   
   <body>
+    <div class="header">
+      <img id="logo" src="/assets/logo/logo-01.svg" alt="logo"/>
+      <nav>
+        <ul>
+          <li><a href="index.html">Products</a></li>
+          <li><a href="shopping-cart.html">Cart</a></li>
+        </ul>
+      </nav>
+    </div>
 
-    <h1>Other Page</h1>
+    <main class="detail">
+      <h1> Shopping cart </h1>
 
-    <p>
-        Hello!
-    </p>
+      <div class="item-checkout">
+        <img src="/assets/products/original-cinnamon-roll.jpg" alt="original cinnamon" class="checkout">
+        <p> Original cinnamon roll </p>
+        <p> Glazing: Keep original</p>
+        <p> Pack Size: 1</p>
+        <p> $ 2.49 </p>
+      </div>
 
+      <div class="item-checkout">
+        <img src="/assets/products/double-chocolate-cinnamon-roll.jpg" alt="Double Chosolate Cinnamon Roll" class="checkout">
+        <p> Double Chocolate Cinnamon Roll </p>
+        <p> Glazing: Sugar milk</p>
+        <p> Pack Size: 6</p>
+        <p> $ 27.45 </p>
+      </div>
+
+      <p>Total: $29.94 </p>
+      <button type="button">Checkout</button>
+    </main>
   </body>
 </html>
