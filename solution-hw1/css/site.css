@@ -42,8 +42,23 @@ img.detail{
     margin:12px
 }
 
+
 p.detail{
     width: 280px;
     text-align: left;
     margin: auto;
 }
+
+/* 
+1. the following won't work if removing them in p.detail
+p{
+    text-align: left;
+    margin: auto;
+}
+
+2. can i have the same class name under different tag?
+
+3. how to align centered while left
+
+4. can I use flex box?
+*/
