@@ -1,0 +1,49 @@
+body{
+    font-size:24px;
+    padding-left: 48px;
+    padding-right: 48px;
+}
+
+main {
+    margin-top: 64px; /*so main content doesn't overlap with nav bar*/
+    text-align: center;
+}
+
+h1{
+    text-align: center;
+    font-size: 32px;
+}
+
+#logo{
+    width: 400px;
+}
+
+nav ul{
+    list-style-type: none; 
+    text-align: center;
+    font-size: 24px;
+}
+
+.product-card {
+    text-align:left;
+    margin: auto;
+}
+
+img.gallery {
+    width: 400px;
+    height: 400px
+}
+
+img.detail{
+    width: 600px;
+    height: 600px;
+    border: 4px solid;
+    border-color: black;
+    margin:12px
+}
+
+p.detail{
+    width: 280px;
+    text-align: left;
+    margin: auto;
+}
