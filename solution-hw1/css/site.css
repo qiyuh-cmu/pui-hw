@@ -3,7 +3,7 @@ body{
 }
 
 nav ul{
-    list-style-type: none; 
+    list-style-type: none; /*???*/
     text-align: center;
     font-size: 24px;
 }
@@ -33,20 +33,24 @@ main {
 h1{
     text-align: center;
     font-size: 32px;
+    font-weight: 10;
 }
 
 /* in the gallery page */
-.product-card {
-    text-align:left;
+.product-block {
+    display: block;
     margin: auto;
 }
 
-.product-card:hover {
+.product-block:hover {
     background-color: yellow;
     font-weight: bold;
     cursor: pointer;
 } /* ?????? how to make only the product name bold */
 
+main.center{
+    text-align:center;
+}
 
 img.gallery {
     width: 400px;
@@ -67,18 +71,26 @@ img.detail{
 .detail-description{
     width: 280px;
     text-align: left;
-    margin: auto;
+    margin: 24px auto 48px auto;
 }
 
 .dropdown-block{
     width: 280px;
     margin: auto;
 }
+/* ?????? how to make it two lines */
+/* how to make the option font bigger */
 
 .price-button{
-    /* display: block;
-    margin: auto; */
+
 }
+/* ?????? how to make it centered */
+
+.inline-button{
+    display: inline;
+}
+/* ?????? how to make it the same line? */
+
 
 /*in the shopping cart page */
 img.checkout{
@@ -89,6 +101,10 @@ img.checkout{
 }
 
 /* the "remove" link in cart */
+.checkout-img{
+    margin-bottom: 12px;
+}
+
 p.clickable{
     text-decoration: underline;
     font-size: 16px;
@@ -96,12 +112,16 @@ p.clickable{
     font-weight: bold;
 }
 
-.checkout-img{
-    margin-bottom: 12px;
+p.checkout-description{
+    margin: 4px;
+}
+
+p.checkout-price{
+    margin-top: 24px;
 }
 
 
-.item-checkout{
+.checkout-block{
     text-align: center;
 }
 
@@ -111,17 +131,16 @@ button{
     font-size: 24px;
 }
 /* 
-1. the following won't work if removing them in p.detail
-p{
-    text-align: left;
-    margin: auto;
-}
+- how to align centered while left
 
-2. can i have the same class name under different tag?
+- bold only the product name when hovering 
 
-3. how to align centered while left
+- the line in UI, make it thinker
+
+
+- can i have the same class name under different tag?
+
 
 4. can I use flex box?
 
-5. the line in UI
 */
