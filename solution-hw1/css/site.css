@@ -147,6 +147,10 @@ button{
     border: 6px solid;
 }
 
+button:hover{
+    cursor: pointer;
+}
+
 /*in the shopping cart page */
 img.checkout{
     width: 200px;
