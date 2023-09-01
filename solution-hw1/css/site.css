@@ -38,7 +38,7 @@ h1{
 
 /* in the gallery page */
 .product-block {
-    display: block;
+    display: block;  
     margin: auto;
 }
 
@@ -49,7 +49,9 @@ h1{
 } /* ?????? how to make only the product name bold */
 
 main.center{
-    text-align:center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 img.gallery {
