@@ -6,11 +6,11 @@
   
   <body>
     <div class="header">
-      <a href="gallery.html"> <img id="logo" src="../assets/logo/logo-01.svg" alt="logo"/> </a>
+      <a href="index.html"> <img id="logo" src="../assets/logo/logo-01.svg" alt="logo"/> </a>
       <hr>
       <nav>
         <ul>
-          <li><a class="highlight-tab" href="gallery.html">PRODUCTS</a></li>
+          <li><a class="highlight-tab" href="index.html">PRODUCTS</a></li>
           <li><a href="shopping-cart.html">CART</a></li>
         </ul>
       </nav>
@@ -21,10 +21,11 @@
 
       <img src="../assets/products/original-cinnamon-roll.jpg" alt="original cinnamon" class="detail">
 
-      <section class="smaller-width">
+      <div class="smaller-width">
         <p class="detail-description"> Customize our delivious hand-made cinammon roll to you liking! </p>
-
-        <section class="dropdown">
+        <!-- this section has two dropdowns -->
+        <div class="dropdown">
+          <!-- each smaller dropdown-block includes the lable and options -->
           <div class="dropdown-block">
             <label class="label-block">Glazing:</label>
             <select>
@@ -35,6 +36,7 @@
             </select>
           </div>
 
+          <!-- each smaller dropdown-block includes the lable and options -->
           <div class="dropdown-block">
             <label class="label-block">Pack size:</label>
             <select>
@@ -43,13 +45,13 @@
               <option>3</option>
             </select>
           </div>
-        </section>
+        </div>
 
         <div class="price-button">
           <p> $2.49 </p> 
           <button type="button">Add to cart</button>
         </div>
-      </section>
+      </div>
     </main>
   </body>
 </html>

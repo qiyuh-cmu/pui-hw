@@ -4,7 +4,7 @@ body{
 }
 
 nav ul{
-    list-style-type: none; /*???*/
+    list-style-type: none; 
     text-align: center;
     font-size: 24px;
 }
@@ -26,7 +26,6 @@ hr{
     font-weight: bold;
     background-color: yellow;
 }
-/* ????????? if it is inside ul &li, it won't work */
 
 #logo{
     width: 400px;
@@ -51,6 +50,14 @@ h1{
 }
 
 /* in the gallery page */
+main.center{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 200px;
+    padding-right: 200px;
+}
+
 .product-block {
     display: block;  
     padding: 6px;
@@ -58,16 +65,11 @@ h1{
 
 .product-block:hover {
     background-color: yellow;
-    font-weight: bold;
     cursor: pointer;
-} /* ?????? how to make only the product name bold */
+}
 
-main.center{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-left: 200px;
-    padding-right: 200px;
+.product-block:hover > .bold-when-hover { /*credit: https://stackoverflow.com/questions/4502633/how-to-affect-other-elements-when-one-element-is-hovered */
+    font-weight: bold; /* to make only the product name bold */
 }
 
 img.gallery {
@@ -86,7 +88,6 @@ img.detail{
     border: 4px solid;
     border-color: black;
 }
-/* ???????is it okay to have the same tag but different class name? */
 
 .detail-description{
     text-align: left;
@@ -187,17 +188,3 @@ p.checkout-price{
 }
 
 
-/* 
-- how to align centered while left
-
-- bold only the product name when hovering 
-
-- the line in UI, make it thinker
-
-
-- can i have the same class name under different tag?
-
-
-4. can I use flex box?
-
-*/
