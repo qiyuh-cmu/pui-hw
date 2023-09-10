@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="UTF-8">
+  <title>Shopping Cart</title>
+  <link rel="stylesheet" type="text/css" href="css/site.css" media="all"/>
+  
+  <body>
+    <div class="header">
+      <a href="index.html"> <img id="logo" src="../assets/logo/logo-01.svg" alt="logo"/> </a>
+      <hr>
+      <nav>
+        <ul>
+          <li><a href="index.html">PRODUCTS</a></li>
+          <li><a class="highlight-tab" href="shopping-cart.html">CART</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <main class="center">
+      <h1> Shopping cart </h1>
+
+      <!-- each block contains an image, remove, specification, and price -->
+      <div class="checkout-block">
+        <div class="checkout-img">
+          <img src="../assets/products/original-cinnamon-roll.jpg" alt="original cinnamon" class="checkout">
+          <p class="clickable"> Remove </p>
+        </div> <!-- which contains all specifications -->
+        <div>
+          <p class="checkout-description"> Original cinnamon roll </p>
+          <p class="checkout-description"> Glazing: Keep original</p>
+          <p class="checkout-description"> Pack Size: 1</p>
+        </div>
+        <p class="checkout-price"> $ 2.49 </p>
+      </div>
+
+      <!-- each block contains an image, remove, specification, and price -->
+      <div class="checkout-block">
+        <div class="checkout-img">
+          <img src="../assets/products/double-chocolate-cinnamon-roll.jpg" alt="Double Chosolate Cinnamon Roll" class="checkout">
+          <p class="clickable"> Remove </p>
+        </div>
+        <div>  <!-- which contains all specifications -->
+          <p class="checkout-description"> Double Chocolate Cinnamon Roll </p>
+          <p class="checkout-description"> Glazing: Sugar milk</p>
+          <p class="checkout-description"> Pack Size: 6</p>
+        </div>
+        <p class="checkout-price"> $ 27.45 </p>
+      </div>
+
+      <hr class="sub-section">
+
+      <div class="price-block">
+        <p>Total: $29.94 </p>
+        <button type="button">Checkout</button>
+      </div>
+    </main>
+  </body>
+</html>
