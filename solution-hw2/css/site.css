@@ -3,7 +3,22 @@ body {
     padding: 48px;
 }
 
-nav ul {
+.header{
+    display: flex;
+    flex-direction: row;
+    margin: 0px;
+}
+
+.flex-column{
+    display: flex;
+    flex-direction: column;    
+    flex-grow: 1;
+}
+
+ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
     list-style-type: none;
     text-align: center;
     font-size: 24px;
@@ -11,6 +26,7 @@ nav ul {
 
 li a {
     text-decoration: none;
+    margin: 24px;
 }
 
 li a:hover {
@@ -19,6 +35,8 @@ li a:hover {
 
 hr {
     border: 4px solid;
+    margin: 0px;
+    width: 100%;
 }
 
 /* highlight the current tab in the nav bar  */
@@ -44,8 +62,8 @@ main {
     /*so main content doesn't overlap with nav bar*/
 }
 
-h1 {
-    text-align: center;
+.flex-column > h1 {
+    text-align: left;
     font-size: 48px;
     font-weight: 10;
 }
@@ -72,6 +90,7 @@ main.center {
     padding: 6px;
     flex: 1 25%;
     justify-content: center;
+    text-align: center;
     /* width: 290px; */
 }
 
@@ -81,7 +100,7 @@ main.center {
     padding: 6px;
     /* flex: 1 290px; */
     justify-content: center;
-    width: 290px;
+    /* width: 290px; */
     /* margin: 20px; */
 }
 
