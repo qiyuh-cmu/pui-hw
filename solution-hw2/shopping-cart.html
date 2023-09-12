@@ -6,26 +6,25 @@
   
   <body>
     <div class="header">
-      <a href="index.html"> <img id="logo" src="../assets/logo/logo-01.svg" alt="logo"/> </a>
-      <hr>
-      <nav>
+      <a href="index.html"> <img id="logo" src="../assets/logo/logo-01.svg" alt="logo" /> </a>
+      <div class="flex-column">
         <ul>
           <li><a href="index.html">PRODUCTS</a></li>
-          <li><a class="highlight-tab" href="shopping-cart.html">CART</a></li>
+          <li><a href="shopping-cart.html" class="highlight-tab">CART</a></li>
         </ul>
-      </nav>
+        <hr>
+        <h1> Shopping cart </h1>
+      </div>
     </div>
 
-    <main class="center">
-      <h1> Shopping cart </h1>
-
+    <main class="cart">
       <!-- each block contains an image, remove, specification, and price -->
-      <div class="checkout-block">
+      <div class="checkout-flex">
         <div class="checkout-img">
           <img src="../assets/products/original-cinnamon-roll.jpg" alt="original cinnamon" class="checkout">
           <p class="clickable"> Remove </p>
         </div> <!-- which contains all specifications -->
-        <div>
+        <div class="checkout-description-block">
           <p class="checkout-description"> Original cinnamon roll </p>
           <p class="checkout-description"> Glazing: Keep original</p>
           <p class="checkout-description"> Pack Size: 1</p>
@@ -34,12 +33,12 @@
       </div>
 
       <!-- each block contains an image, remove, specification, and price -->
-      <div class="checkout-block">
+      <div class="checkout-flex">
         <div class="checkout-img">
           <img src="../assets/products/double-chocolate-cinnamon-roll.jpg" alt="Double Chosolate Cinnamon Roll" class="checkout">
           <p class="clickable"> Remove </p>
         </div>
-        <div>  <!-- which contains all specifications -->
+        <div class="checkout-description-block">  <!-- which contains all specifications -->
           <p class="checkout-description"> Double Chocolate Cinnamon Roll </p>
           <p class="checkout-description"> Glazing: Sugar milk</p>
           <p class="checkout-description"> Pack Size: 6</p>
@@ -49,9 +48,12 @@
 
       <hr class="sub-section">
 
-      <div class="price-block">
-        <p>Total: $29.94 </p>
-        <button type="button">Checkout</button>
+      <div class="price-flex">
+        <p id="total-price">Total</p>
+        <p>$ 29.94</p>
+      </div>
+      <div class="align-right">
+        <button type="button" id="cart-button">Checkout</button>
       </div>
     </main>
   </body>
