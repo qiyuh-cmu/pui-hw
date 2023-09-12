@@ -1,5 +1,7 @@
 body {
     font-size: 24px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0px;
 }
 
 .header{
@@ -17,8 +19,8 @@ body {
 
 .flex-column > h1 {
     text-align: left;
-    font-size: 40px;
-    font-weight: 5;
+    font-size: 36px;
+    font-weight: 2;
     margin: 16px 0px 0px 0px;
 }
 
@@ -29,11 +31,12 @@ ul {
     list-style-type: none;
     text-align: center;
     font-size: 24px;
+    margin-right: 64px
 }
 
 li a {
     text-decoration: none;
-    margin: 24px;
+    margin: 48px;
 }
 
 li a:hover {
@@ -45,9 +48,8 @@ li a:visited {
 }
 
 hr {
-    border: 4px solid;
+    border: 3px solid;
     margin: 0px;
-    width: 100%;
 }
 
 /* highlight the current tab in the nav bar  */
@@ -58,7 +60,7 @@ hr {
 
 #logo {
     width: 400px;
-    margin: 12px;
+    margin: 24px;
 }
 
 /* the division line that creats sections  */
@@ -90,6 +92,8 @@ main.center {
     justify-content: space-evenly;
     gap: 48px;
     flex-wrap: wrap;
+    width: 1000px;
+    margin: auto;
 }
 
 .product-block a{
@@ -104,12 +108,17 @@ main.center {
     overflow-wrap: break-word;
 }
 
+
+.bold-when-hover {
+    text-decoration: underline;
+}
+
 .product-block:hover {
     background-color: yellow;
     cursor: pointer;
 }
 
-.product-block:hover>.bold-when-hover {
+.product-block:hover .bold-when-hover {
     /*credit: https://stackoverflow.com/questions/4502633/how-to-affect-other-elements-when-one-element-is-hovered */
     font-weight: bold;
     /* to make only the product name bold */
@@ -126,10 +135,11 @@ img.gallery {
 /* in the detail page */
 .detail-page-flex{
     display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 img.detail {
-    display: block;
     margin: 12px auto;
     width: 600px;
     height: 600px;
@@ -137,21 +147,21 @@ img.detail {
     border-color: black;
 }
 
+.detail-block{
+    width: 30%;
+}
+
 .detail-description {
     text-align: left;
-    margin: 24px auto 48px auto;
+    margin-bottom: 96px;
 }
 
 .dropdown-block {
-    margin-bottom: 24px;
+    margin-bottom: 44px;
 }
 
-section .dropdown {
-    margin-bottom: 48px;
-}
-
-.label-block {
-    display: block;
+.dropdown {
+    margin-bottom: 96px;
 }
 
 select {
@@ -162,9 +172,6 @@ select {
 
 }
 
-.detail-block {
-    width: 280px;
-}
 
 hr.sub-section {
     margin: 0px;
@@ -192,7 +199,7 @@ button {
     font-weight: bold;
     padding: 12px 12px;
     width: 100%;
-    border: 6px solid;
+    border: 4px solid;
 }
 
 button:hover {
@@ -201,9 +208,17 @@ button:hover {
 
 /*in the shopping cart page */
 main.cart {
+    margin: 0px;
     margin-left: 35%;
-    margin-right: 5%;
+}
 
+.checkout-flex {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 24px;
+    margin-bottom: 24px;
+    justify-content: start;
 }
 
 img.checkout {
@@ -211,6 +226,7 @@ img.checkout {
     height: 200px;
     border: 4px solid;
     border-color: black;
+    flex-grow: 1;
 }
 
 /* the "remove" link in cart */
@@ -230,42 +246,42 @@ p.checkout-description {
 }
 
 p.checkout-price {
-    margin-top: 24px;
-}
-
-
-.checkout-flex {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-top: 24px;
-    margin-bottom: 24px;
+    margin-right: 40px;
+    font-size: 120%;
+    flex-grow: 1;
 }
 
 .checkout-description-block{
-    margin: 24px;    
+    margin: 12px;    
     text-align: left;
     flex-grow: 3;
 }
 
 
 .price-flex {
+    font-size: 120%;
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-top: 24px;
-    margin-bottom: 24px;
+    margin: 24px 0px 24px 208px;
+}
+
+#total{
+    text-align:left;
+    padding: 16px;
+    width: 70%;
 }
 
 #total-price{
-    margin-left: 232px;
-    flex-grow: 3;
+    margin-right: 40px;
+    /* text-align:right; */
 }
 
 #cart-button{
     width: fit-content;
     padding-left: 32px;
     padding-right: 32px;
+    margin-right: 40px;
 }
 
 .align-right{
