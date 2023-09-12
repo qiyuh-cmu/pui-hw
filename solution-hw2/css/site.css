@@ -254,7 +254,8 @@ p.checkout-price {
 .checkout-description-block{
     margin: 12px;    
     text-align: left;
-    flex-grow: 3;
+    width: 48%;
+    /* flex-grow: 3; */
 }
 
 
@@ -269,7 +270,7 @@ p.checkout-price {
 #total{
     text-align:left;
     padding: 16px;
-    width: 70%;
+    width: 64%;
 }
 
 #total-price{
