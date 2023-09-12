@@ -87,24 +87,12 @@ main.center {
 .product-flex {
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    align-items: top;
+    justify-content: space-evenly;
+    gap: 48px;
     flex-wrap: wrap;
 }
 
-.wrapper-block {
-    /* display: inline-block; */
-    padding: 6px;
-    flex: 1 25%;
-    justify-content: center;
-    text-align: center;
-    /* width: 290px; */
-}
-
-
-.product-block {
-    display: inline-block;
-    justify-content: center;
+.product-block a{
     text-align: left;
     text-decoration: none;
 }
@@ -112,6 +100,8 @@ main.center {
 .product-block p{
     margin: 0px;
     color: black;
+    width: 285px;
+    overflow-wrap: break-word;
 }
 
 .product-block:hover {
