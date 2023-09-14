@@ -31,7 +31,7 @@ ul {
     list-style-type: none;
     text-align: center;
     font-size: 24px;
-    margin-right: 64px
+    margin-right: 32px
 }
 
 li a {
@@ -90,10 +90,14 @@ main.center {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    gap: 48px;
+    gap: 32px;
     flex-wrap: wrap;
     width: 1000px;
     margin: auto;
+}
+
+.product-block{
+    padding: 8px;
 }
 
 .product-block a{
@@ -206,7 +210,7 @@ button:hover {
     cursor: pointer;
 }
 
-/*in the shopping cart page */
+/*--- in the shopping cart page ---*/
 main.cart {
     margin: 0px;
     margin-left: 35%;
@@ -226,7 +230,7 @@ img.checkout {
     height: 200px;
     border: 4px solid;
     border-color: black;
-    flex-grow: 1;
+    /* flex-grow: 1; */
 }
 
 /* the "remove" link in cart */
@@ -247,8 +251,9 @@ p.checkout-description {
 
 p.checkout-price {
     margin-right: 40px;
+    text-align: center;
     font-size: 120%;
-    flex-grow: 1;
+    /* flex-grow: 1; */
 }
 
 .checkout-description-block{
