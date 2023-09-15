@@ -191,10 +191,12 @@ hr.sub-section {
 
 }
 
-.price-button p {
+#total_price {
     margin: auto 24px auto 32px;
     font-size: 18px;
     font-weight: bold;
+    width: 100%;
+    text-align: right;
 }
 
 button {

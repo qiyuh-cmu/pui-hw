@@ -62,7 +62,7 @@ function updateDropDown(object, element){
 
 function glazingChange(element) {
   // get value of selected glazing option
-  let index = parseInt(element.value);
+  const index = parseInt(element.value);
   let selected_glazing = all_glazing_options[index];
   glazingPrice = selected_glazing.price_adaptation;
   display_price();
@@ -70,7 +70,7 @@ function glazingChange(element) {
 
 function sizeChange(element) {
   // get value of selected glazing option
-  let index = parseInt(element.value);
+  const index = parseInt(element.value);
   let selected_packSize = packSize_options[index];
   packPrice = selected_packSize.price_adaptation;
   display_price();
@@ -80,6 +80,5 @@ function display_price(){
   totalPrice = ((basePrice + glazingPrice) * packPrice).toFixed(2);
   // console.log("(" + basePrice + " + " + glazingPrice + ")" + " * " + packPrice + " = " + totalPrice);
   let total_price = document.querySelector('#total_price');
-  console.log(total_price);
   total_price.innerText = "$ "+ totalPrice.toString();
 }
