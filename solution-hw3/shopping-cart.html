@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<title>Shopping Cart</title>
+<link rel="stylesheet" type="text/css" href="css/site.css" media="all" />
+
+<body>
+  <div class="header">
+    <a href="index.html"> <img id="logo" src="../assets/logo/logo-01.svg" alt="logo" /> </a>
+    <div class="flex-column">
+      <ul>
+        <li><a href="index.html">PRODUCTS</a></li>
+        <li><a href="shopping-cart.html" class="highlight-tab">CART</a></li>
+      </ul>
+      <hr>
+      <h1> Shopping cart </h1>
+    </div>
+  </div>
+
+  <main class="cart">
+    <!-- each block contains an image, remove, specification, and price -->
+    <div class="checkout-flex">
+      <div class="checkout-img">
+        <img src="../assets/products/original-cinnamon-roll.jpg" alt="original cinnamon" class="checkout" width="200" height="200">
+        <p class="clickable"> Remove </p>
+      </div> <!-- which contains all specifications -->
+      <div class="checkout-description-block">
+        <p class="checkout-description"> Original cinnamon roll </p>
+        <p class="checkout-description"> Glazing: Keep original</p>
+        <p class="checkout-description"> Pack Size: 1</p>
+      </div>
+      <p class="checkout-price"> $ 2.49 </p>
+    </div>
+
+    <!-- each block contains an image, remove, specification, and price -->
+    <div class="checkout-flex">
+      <div class="checkout-img">
+        <img src="../assets/products/double-chocolate-cinnamon-roll.jpg" alt="Double Chosolate Cinnamon Roll" class="checkout" width="200" height="200">
+        <p class="clickable"> Remove </p>
+      </div>
+      <div class="checkout-description-block"> <!-- which contains all specifications -->
+        <p class="checkout-description"> Double Chocolate Cinnamon Roll </p>
+        <p class="checkout-description"> Glazing: Sugar milk</p>
+        <p class="checkout-description"> Pack Size: 6</p>
+      </div>
+      <p class="checkout-price"> $ 27.45 </p>
+    </div>
+
+    <hr class="sub-section">
+
+    <div class="price-flex">
+      <p id="total">Total</p>
+      <p id="total-price"> $ 29.94 </p>
+    </div>
+    <div class="align-right">
+      <button type="button" id="cart-button">Checkout</button>
+    </div>
+  </main>
+</body>
+
+</html>
