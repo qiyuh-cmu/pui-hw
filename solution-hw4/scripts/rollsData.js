@@ -24,26 +24,3 @@ const rolls = {
         "imageFile": "strawberry-cinnamon-roll.jpg"
     }    
 };
-
-let cart;
-const queryString = window.location.search;
-const params = new URLSearchParams(queryString);
-const rollType = params.get('roll');
-const name = rollType + " Cinnamon Roll";
-const base_Price = rolls[rollType].basePrice;
-const image_File = rolls[rollType].imageFile;
-console.log(name);
-console.log(base_Price);
-console.log(image_File);
-
-// Update the header text
-const headerElement = document.querySelector('#header-text');
-headerElement.innerText = name;
-
-// Update the image
-const imgElement = document.querySelector('#detail-img');
-imgElement.src = "../assets/products/" + image_File;
-
-// Update the basePrice
-const price = document.querySelector('#calculated-price');
-price.innerText = base_Price;

@@ -2,6 +2,8 @@ const basePrice = Number(document.querySelector('#calculated-price').innerText);
 let glazingPrice = 0.00;
 let packPrice = 1;
 let totalPrice;
+let glazingOptionsElement = document.querySelector('#glazingOptions');
+let sizeOptionsElement = document.querySelector('#sizeOptions');
 
 // a list of glazing object
 let all_glazing_options = [
@@ -43,17 +45,13 @@ let packSize_options = [
   },
 ];
 
-let glazingOptionsElement = document.querySelector('#glazingOptions');
-updateDropDown(all_glazing_options,glazingOptionsElement);
+let selected_glazing = all_glazing_options[0].name;
+let selected_packSize = packSize_options[0].name;
 
-let sizeOptionsElement = document.querySelector('#sizeOptions');
-updateDropDown(packSize_options,sizeOptionsElement);
 
-display_price();
-
-function updateDropDown(object, element){
+function generateDropDown(object, element){
   for (let i = 0; i < object.length; i += 1){
-    var option = document.createElement('option');
+    let option = document.createElement('option');
     option.text = object[i].name;
     option.value = i;
     element.add(option);
@@ -63,22 +61,29 @@ function updateDropDown(object, element){
 function glazingChange(element) {
   // get value of selected glazing option
   const index = parseInt(element.value);
-  let selected_glazing = all_glazing_options[index];
-  glazingPrice = selected_glazing.price_adaptation;
+  selected_glazing = all_glazing_options[index].name;
+  glazingPrice = all_glazing_options[index].price_adaptation;
   display_price();
 }
 
 function sizeChange(element) {
   // get value of selected glazing option
   const index = parseInt(element.value);
-  let selected_packSize = packSize_options[index];
-  packPrice = selected_packSize.price_adaptation;
+  selected_packSize = packSize_options[index].name;
+  packPrice = packSize_options[index].price_adaptation;
   display_price();
 }
 
 function display_price(){
   totalPrice = ((basePrice + glazingPrice) * packPrice).toFixed(2);
-  console.log("(" + basePrice + " + " + glazingPrice + ")" + " * " + packPrice + " = " + totalPrice);
+  // console.log("(" + basePrice + " + " + glazingPrice + ")" + " * " + packPrice + " = " + totalPrice);
   let total_price = document.querySelector('#calculated-price');
   total_price.innerText = "$ "+ totalPrice.toString();
 }
+
+
+generateDropDown(all_glazing_options,glazingOptionsElement);
+
+generateDropDown(packSize_options,sizeOptionsElement);
+
+display_price();
