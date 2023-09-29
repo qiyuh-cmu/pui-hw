@@ -16,7 +16,7 @@ let all_glazing_options = [
     price_adaptation: 0.00,
   },
   {
-    name: "Vinilla milk",
+    name: "Vanilla milk",
     price_adaptation: 0.50,
   }, 
   {
