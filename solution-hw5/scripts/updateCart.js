@@ -1,11 +1,9 @@
-function addNewRoll() {
+function addNewRoll(rollType, selected_glazing, selected_packSize, basePrice) {
   // Create a new Roll object. 
   const roll = new Roll(rollType, selected_glazing, selected_packSize, basePrice);
-  roll.calculated_price = calculated_price;
   roll.imageFile = "../assets/products/"+ rolls[rollType].imageFile;
   // Add the Roll object to our cart array, which keeps track of all Rolls
   cart.push(roll);
-  console.log(cart);
 }
 
 
@@ -51,11 +49,17 @@ function deleteRoll(roll) {
   // remove the roll DOM object from the UI
   roll.element.remove();
   // remove the actual Notecard object from our set of notecards
-  cart.delete(roll);
+  cart.splice(-1,1);
+  console.log(cart);
 }
+
+addNewRoll("Original", "Sugar Milk", 1, 2.49);
+addNewRoll("Walnut", "Vanilla Milk", 12, 3.49);
+addNewRoll("Raisin", "Sugar Milk", 3, 2.99);
+addNewRoll("Apple", "Original", 3, 3.49);
+
 console.log(cart);
 
 for (let index = 0; index < cart.length; index++) {
-  console.log(cart[index]);
   createElement(cart[index]);
 }
