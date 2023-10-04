@@ -70,14 +70,50 @@ let packSize_options = [
 class Roll {
     rollType;
     rollGlazing;
+    glazingPrice;
     packSize;
+    packPrice
     basePrice;
     imageFile;
-    calculated_price;
+    calculatedPrice;
     constructor(rollType, rollGlazing, packSize, basePrice) {
         this.rollType = rollType;
         this.rollGlazing = rollGlazing;
         this.packSize = packSize;
         this.basePrice = basePrice;
+    }
+    updateGlazingPrice(){
+        let found=false;
+        if (this.rollGlazing == "Original"){
+            this.glazingPrice=all_glazing_options[0]["price_adaptation"];
+        }
+        else {
+            for (const glazing_option of all_glazing_options){
+                if (glazing_option["name"] == this.rollGlazing){
+                    this.glazingPrice=glazing_option["price_adaptation"];
+                    found = true;
+                }
+            }
+            if (found==false){
+                console.log("cannot find the glazing price of "+this.rollType);
+            }
+        }
+    }
+
+    updatePackPrice(){
+        let found=false;
+        for (const packSize_option of packSize_options){
+            if (packSize_option["name"] == this.packSize){
+                this.packPrice = packSize_option["price_adaptation"];
+                found = true;
+            }
+        }
+        if (found==false){
+            console.log("cannot find the glazing price of "+this.rollType);
+        }
+    }
+
+    updatePrice(){
+        this.calculatedPrice = ((this.basePrice + this.glazingPrice) * this.packPrice).toFixed(2);
     }
 }
