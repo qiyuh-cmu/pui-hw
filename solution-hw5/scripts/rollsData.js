@@ -115,5 +115,6 @@ class Roll {
 
     updatePrice(){
         this.calculatedPrice = ((this.basePrice + this.glazingPrice) * this.packPrice).toFixed(2);
+        console.log("(" + this.basePrice + " + " + this.glazingPrice + ")" + " * " + this.packPrice + " = " + this.calculatedPrice);
     }
 }

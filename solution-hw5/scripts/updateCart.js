@@ -1,3 +1,4 @@
+console.log("The outputs in the console here are for testing purpose, if you don't want to see them please delete all console.log() lines in the updateCart.js file")
 function addNewRoll(rollType, selected_glazing, selected_packSize, basePrice) {
   // Create a new Roll object. 
   const roll = new Roll(rollType, selected_glazing, selected_packSize, basePrice);
@@ -7,7 +8,6 @@ function addNewRoll(rollType, selected_glazing, selected_packSize, basePrice) {
   roll.updatePrice();
   // Add the Roll object to our cart array, which keeps track of all Rolls
   cart.push(roll);
-  console.log(cart);
 }
 
 
@@ -40,28 +40,37 @@ function updateElement(roll) {
   const rollGlazingElement = roll.element.querySelector('#checkout-rollGlazing');
   const packSizeElement = roll.element.querySelector('#checkout-packSize');
   const priceElement = roll.element.querySelector('.checkout-price');
-  const totalPriceElement = document.querySelector('#total-price');
   // copy our roll content over to the corresponding HTML elements
   rollImageElement.src = roll.imageFile;
   rollTypeElement.innerText = roll.rollType + " cinnamon roll";
   rollGlazingElement.innerText = "Glazing: "+roll.rollGlazing;
   packSizeElement.innerText = "Pack Size: "+roll.packSize;
   priceElement.innerText = "$ "+roll.calculatedPrice;
-  totalPriceElement.innerText = "$ " + calculatedTotalPrice();
 }
 
 function deleteRoll(roll) {
   // remove the roll DOM object from the UI
   roll.element.remove();
   // remove the actual roll object from our set of rolls
-  cart.splice(-1,1);
+  cart.splice(cart.indexOf(roll),1);
+  updateTotalPrice();
+  console.log(cart);
 }
+
+function updateTotalPrice(){
+  const totalPriceElement = document.querySelector('#total-price');
+  totalPriceElement.innerText = "$ " + calculatedTotalPrice();
+}
+
 
 function calculatedTotalPrice(){
   let totalPrice = 0.00;
+  console.log("---for loop to calculate final price---");
   for (roll of cart){
-    totalPrice = totalPrice+(parseFloat(roll.calculatedPrice)); 
+    console.log(totalPrice+"+"+ (parseFloat(roll.calculatedPrice))) ;
+    totalPrice = totalPrice+(parseFloat(roll.calculatedPrice));
   }
+  console.log("total: "+ totalPrice);
   return totalPrice;
 }
 
@@ -75,3 +84,4 @@ console.log(cart);
 for (let index = 0; index < cart.length; index++) {
   createElement(cart[index]);
 }
+updateTotalPrice();
