@@ -30,17 +30,17 @@ function setup() {
 
 function draw() {
   // Get the overall volume (between 0 and 1.0)
-  let volume = input.getLevel();
+  let volume = input.getLevel()*1.5;
 
   // If the volume > 0.1,  a rect is drawn at a random location.
   // The louder the volume, the larger the rectangle.
-  let threshold = 0.001;
+  let threshold = 0.01;
   if (volume > threshold) {
     noStroke();
     fill(0, 100);
     let x = random(width);
     let y = random(height);
-    let length= volume * 500;
+    let length= volume * 800;
     rect(x, y, length, length);
     setTimeout(() => {
       noStroke();
