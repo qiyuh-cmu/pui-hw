@@ -4,8 +4,7 @@ let input;
 let analyzer;
 let timer = 0;
 let interval = 5000 // 2 seconds
-
-const btn = document.querySelector('.slider round');
+const btn = document.querySelector('.round');
   btn.addEventListener('click', () => {
     setup();
   })
@@ -35,23 +34,19 @@ function draw() {
 
   // If the volume > 0.1,  a rect is drawn at a random location.
   // The louder the volume, the larger the rectangle.
-  let threshold = 0.01;
+  let threshold = 0.001;
   if (volume > threshold) {
     noStroke();
     fill(0, 100);
-    let x = random(40, width);
+    let x = random(width);
     let y = random(height);
-    rect(x, y, volume * 50, volume * 50);
+    let length= volume * 500;
+    rect(x, y, length, length);
     setTimeout(() => {
       noStroke();
       fill('white');
-      rect(x, y, volume * 50, volume * 50);
+      rect(x, y, length, length);
     }, 2000);
-    // if (millis() - timer > interval) {
-    //   timer=millis();
-    //   console.log('do something');
-    //   fill('white');
-    // }
   }
 
   // Graph the overall potential volume, w/ a line at the threshold
