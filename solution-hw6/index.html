@@ -2,20 +2,78 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>Laughter caption</title>
+    <title>Product Gallery</title>
     <link rel="stylesheet" type="text/css" href="css/site.css" media="all" />
-    <script src="scripts/p5.js"></script>
-    <script src="scripts/p5.sound.js"></script>
-    <script src="scripts/visualizer.js" defer type="text/javascript"> </script> 
+    <script src="scripts/rollsData.js" defer type="text/javascript"> </script> 
   </head>
   <body>
     <div class="header">
       <a href="index.html"> <img id="logo" src="../assets/logo/logo-01.svg" alt="logo" /> </a>
+      <div class="flex-column">
+        <ul>
+          <li><a class="highlight-tab" href="index.html">PRODUCTS</a></li>
+          <li><a href="shopping-cart.html">CART</a></li>
+        </ul>
+        <hr>
+        <h1> Our hand-made cinnamon rolls </h1>
+      </div>
     </div>
 
     <main class="center">
-      <div class="product-block">
-        <iframe width="80%" height="800" src="https://www.youtube.com/embed/JYqfVE-fykk?si=8-izjrzghCpc7Y03" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      <div class="product-flex">
+        <!-- each block includes an image, product name, and price -->
+        <div class="product-block">
+          <a href="product-detail.html?roll=Original">
+            <img src="../assets/products/original-cinnamon-roll.jpg" alt="original cinnamon" class="gallery" width="285" height="285">
+            <p class="bold-when-hover"> Original cinnamon roll </p>
+            <p> $ 2.49 </p>
+          </a>
+        </div>
+
+        <!-- each block includes an image, product name, and price -->
+        <div class="product-block">
+          <a href="product-detail.html?roll=Apple">
+            <img src="../assets/products/apple-cinnamon-roll.jpg" alt="apple cinnamon" class="gallery" width="285" height="285">
+            <p class="bold-when-hover"> Apple cinnamon roll </p>
+            <p> $ 3.49 </p>
+          </a>
+        </div>
+
+        <!-- each block includes an image, product name, and price -->
+        <div class="product-block">
+          <a href="product-detail.html?roll=Raisin">
+            <img src="../assets/products/raisin-cinnamon-roll.jpg" alt="raisin cinnamon" class="gallery" width="285" height="285">
+            <p class="bold-when-hover"> Raisin cinnamon roll </p>
+            <p> $ 2.99 </p>
+          </a>
+        </div>
+
+        <!-- each block includes an image, product name, and price -->
+        <div class="product-block">
+          <a href="product-detail.html?roll=Walnut">
+            <img src="../assets/products/walnut-cinnamon-roll.jpg" alt="walnut cinnamon" class="gallery" width="285" height="285">
+            <p class="bold-when-hover"> Walnut cinnamon roll </p>
+            <p> $ 3.49 </p>
+          </a>
+        </div>
+
+        <!-- each block includes an image, product name, and price -->
+        <div class="product-block">
+          <a href="product-detail.html?roll=Double-Chocolate">
+            <img src="../assets/products/double-chocolate-cinnamon-roll.jpg" alt="double-chocolate cinnamon" class="gallery" width="285" height="285">
+            <p class="bold-when-hover"> Double-chocolate cinnamon roll </p>
+            <p> $ 3.99 </p>
+          </a>
+        </div>
+
+        <!-- each block includes an image, product name, and price -->
+        <div class="product-block">
+          <a href="product-detail.html?roll=Strawberry">
+            <img src="../assets/products/strawberry-cinnamon-roll.jpg" alt="strawberry cinnamon" class="gallery" width="285" height="285">
+            <p class="bold-when-hover"> Strawberry cinnamon roll </p>
+            <p> $ 3.99 </p>
+          </a>
+        </div>
       </div>
     </main>
   </body>

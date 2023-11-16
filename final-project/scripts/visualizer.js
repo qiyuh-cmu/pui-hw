@@ -5,14 +5,21 @@ let analyzer;
 let timer = 0;
 let interval = 5000 // 2 seconds
 
-const btn = document.querySelector('#logo');
+const btn = document.querySelector('.slider round');
   btn.addEventListener('click', () => {
     setup();
   })
 
 function setup() {
   console.log("button clicked")
-  bg = createCanvas(710, 200);
+  bg = createCanvas(windowWidth, windowHeight);
+  // canvas.width = window.innerWidth;
+  // canvas.height = window.innerHeight;
+  // canvas = document.querySelector("canvas");
+  // canvas.width = document.body.clientWidth; //document.width is obsolete
+  // canvas.height = document.body.clientHeight; //document.height is obsolete
+  // canvasW = canvas.width;
+  // canvasH = canvas.height;
   background(255);
 
   // Create an Audio input
