@@ -5,27 +5,33 @@ let analyzer;
 let timer = 0;
 let interval = 5000 // 2 seconds
 const btn = document.querySelector('.round');
-  btn.addEventListener('click', () => {
-    setup();
-  })
+let button_status = false;
+btn.addEventListener('click', () => {
+  userStartAudio();
+  button_status = !button_status;
+  setup();
+})
 
 function setup() {
-  console.log("button clicked")
-  bg = createCanvas(windowWidth, windowHeight);
-  // canvas.width = window.innerWidth;
-  // canvas.height = window.innerHeight;
-  // canvas = document.querySelector("canvas");
-  // canvas.width = document.body.clientWidth; //document.width is obsolete
-  // canvas.height = document.body.clientHeight; //document.height is obsolete
-  // canvasW = canvas.width;
-  // canvasH = canvas.height;
-  background(255);
 
-  // Create an Audio input
-  input = new p5.AudioIn();
-  
-  input.start();
-
+    console.log("button clicked")
+    createCanvas(windowWidth, windowHeight);
+    // canvas.width = window.innerWidth;
+    // canvas.height = window.innerHeight;
+    // canvas = document.querySelector("canvas");
+    // canvas.width = document.body.clientWidth; //document.width is obsolete
+    // canvas.height = document.body.clientHeight; //document.height is obsolete
+    // canvasW = canvas.width;
+    // canvasH = canvas.height;
+    if (!button_status){
+      background("white");
+    }else{
+      background("black");
+    }
+    // Create an Audio input
+    input = new p5.AudioIn();
+    
+    input.start();
 }
 
 function draw() {
@@ -37,14 +43,14 @@ function draw() {
   let threshold = 0.01;
   if (volume > threshold) {
     noStroke();
-    fill(0, 100);
+    fill(255, 204, 0);
     let x = random(width);
     let y = random(height);
     let length= volume * 800;
     rect(x, y, length, length);
     setTimeout(() => {
       noStroke();
-      fill('white');
+      fill('black');
       rect(x, y, length, length);
     }, 2000);
   }

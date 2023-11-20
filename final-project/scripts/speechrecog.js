@@ -10,6 +10,7 @@ This example uses a callback pattern to create the classifier
 === */
 
 // Initialize a sound classifier method with SpeechCommands18w model. A callback needs to be passed.
+
 let classifier;
 // Options for the SpeechCommands18w model, the default probabilityThreshold is 0
 const options = { probabilityThreshold: 0.7 };
