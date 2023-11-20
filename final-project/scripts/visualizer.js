@@ -30,14 +30,17 @@ function setup() {
     }
     // Create an Audio input
     input = new p5.AudioIn();
-    
     input.start();
 }
 
 function draw() {
   // Get the overall volume (between 0 and 1.0)
   let volume = input.getLevel()*1.5;
-
+  // for (let i = 0; i< spectrum.length; i++){
+  //   if (spectrum[i]!=0){
+  //     console.log(spectrum[i]);
+  //   }
+  // }
   // If the volume > 0.1,  a rect is drawn at a random location.
   // The louder the volume, the larger the rectangle.
   let threshold = 0.01;
