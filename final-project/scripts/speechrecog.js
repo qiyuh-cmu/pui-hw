@@ -17,20 +17,21 @@ const options = { probabilityThreshold: 0.7 };
 // Two variable to hold the label and confidence of the result
 let label;
 let confidence;
+let to_be_shown;
 
 function preload() {
   // Load SpeechCommands18w sound classifier model
   classifier = ml5.soundClassifier('SpeechCommands18w', options);
 }
 
-function setup() {
-  noCanvas();
-  // Create 'label' and 'confidence' div to hold results
-  label = createDiv('Label: ...');
-  confidence = createDiv('Confidence: ...');
-  // Classify the sound from microphone in real time
-  classifier.classify(gotResult);
-}
+// function setup() {
+//   // noCanvas();
+//   // Create 'label' and 'confidence' div to hold results
+//   // label = createDiv('Label: ...');
+//   // confidence = createDiv('Confidence: ...');
+//   // Classify the sound from microphone in real time
+//   classifier.classify(gotResult);
+// }
 
 // A function to run when we get any errors and the results
 function gotResult(error, results) {
@@ -39,8 +40,14 @@ function gotResult(error, results) {
     console.error(error);
   }
   // The results are in an array ordered by confidence.
-  console.log(results);
+  // console.log(results);
   // Show the first label and confidence
-  label.html('Label: ' + results[0].label);
-  confidence.html('Confidence: ' + nf(results[0].confidence, 0, 2)); // Round the confidence to 0.01
+  // console.log('Label: ' + results[0].label);
+  // console.log('Confidence: ' + nf(results[0].confidence, 0, 2)); // Round the confidence to 0.01
+  if(nf(results[0].confidence, 0, 2)>0.97){
+    to_be_shown = results[0].label;}
+  // else{
+  //   to_be_shown=undefined;
+  // }
+  // console.log(to_be_shown);
 }

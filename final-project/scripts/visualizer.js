@@ -6,6 +6,7 @@ let timer = 0;
 let interval = 5000 // 2 seconds
 const btn = document.querySelector('.round');
 let button_status = false;
+
 btn.addEventListener('click', () => {
   userStartAudio();
   button_status = !button_status;
@@ -31,10 +32,12 @@ function setup() {
     // Create an Audio input
     input = new p5.AudioIn();
     input.start();
+    classifier.classify(gotResult);
 }
 
 function draw() {
   // Get the overall volume (between 0 and 1.0)
+  console.log(to_be_shown);
   let volume = input.getLevel()*1.5;
   // for (let i = 0; i< spectrum.length; i++){
   //   if (spectrum[i]!=0){
@@ -50,6 +53,7 @@ function draw() {
     let x = random(width);
     let y = random(height);
     let length= volume * 800;
+    
     rect(x, y, length, length);
     setTimeout(() => {
       noStroke();
