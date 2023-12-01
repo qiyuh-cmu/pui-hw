@@ -37,8 +37,10 @@ function setup() {
 
 function draw() {
   // Get the overall volume (between 0 and 1.0)
-  console.log(to_be_shown);
+  // console.log(to_be_shown);
   let volume = input.getLevel()*1.5;
+  console.log(volume);
+
   // for (let i = 0; i< spectrum.length; i++){
   //   if (spectrum[i]!=0){
   //     console.log(spectrum[i]);
@@ -52,14 +54,25 @@ function draw() {
     fill(255, 204, 0);
     let x = random(width);
     let y = random(height);
-    let length= volume * 800;
-    
+    let length;
+    if (volume>0.08){
+      length = volume * 800+200;
+      console.log("!!!!!")
+    }
+    else if (volume>0.03){
+      length = (volume * 400)*1.5;
+    }
+    else{
+      length = volume * 200;
+    }
+    console.log("length")
+    console.log(volume,length)
     rect(x, y, length, length);
     setTimeout(() => {
       noStroke();
       fill('black');
       rect(x, y, length, length);
-    }, 2000);
+    }, 1000);
   }
 
   // Graph the overall potential volume, w/ a line at the threshold
