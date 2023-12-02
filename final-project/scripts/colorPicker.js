@@ -8,7 +8,6 @@ function startup() {
   colorPicker = document.querySelector("#color-picker");
   colorPicker.value = defaultColor;
   colorPicker.addEventListener("input", updateFirst, false);
-  colorPicker.addEventListener("change", updateAll, false);
   colorPicker.select();
 }
 

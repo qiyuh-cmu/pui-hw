@@ -17,13 +17,6 @@ btn.addEventListener('click', () => {
 function setup() {
     console.log("button clicked");
     createCanvas(windowWidth, windowHeight);
-    // canvas.width = window.innerWidth;
-    // canvas.height = window.innerHeight;
-    // canvas = document.querySelector("canvas");
-    // canvas.width = document.body.clientWidth; //document.width is obsolete
-    // canvas.height = document.body.clientHeight; //document.height is obsolete
-    // canvasW = canvas.width;
-    // canvasH = canvas.height;
     if (!button_status){
       background("white");
     }else{
@@ -36,18 +29,13 @@ function setup() {
 }
 
 function draw() {
-  patternColor = selectedColor;
+  if (selectedColor){
+    patternColor = selectedColor;
+  }
   // Get the overall volume (between 0 and 1.0)
-  // console.log(to_be_shown);
   let volume = input.getLevel()*1.5;
-  console.log(volume);
+  // console.log(volume);
   console.log(patternColor);
-  // for (let i = 0; i< spectrum.length; i++){
-  //   if (spectrum[i]!=0){
-  //     console.log(spectrum[i]);
-  //   }
-  // }
-  // If the volume > 0.1,  a rect is drawn at a random location.
   // The louder the volume, the larger the rectangle.
   let threshold = 0.01;
   if (volume > threshold) {
@@ -66,8 +54,8 @@ function draw() {
     else{
       length = volume * 200;
     }
-    console.log("length")
-    console.log(volume,length)
+    // console.log("length")
+    // console.log(volume,length)
     rect(x, y, length, length);
     setTimeout(() => {
       noStroke();
