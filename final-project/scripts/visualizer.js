@@ -6,6 +6,7 @@ let timer = 0;
 let interval = 5000 // 2 seconds
 const btn = document.querySelector('.round');
 let button_status = false;
+let patternColor = "yellow";
 
 btn.addEventListener('click', () => {
   userStartAudio();
@@ -14,8 +15,7 @@ btn.addEventListener('click', () => {
 })
 
 function setup() {
-
-    console.log("button clicked")
+    console.log("button clicked");
     createCanvas(windowWidth, windowHeight);
     // canvas.width = window.innerWidth;
     // canvas.height = window.innerHeight;
@@ -36,11 +36,12 @@ function setup() {
 }
 
 function draw() {
+  patternColor = selectedColor;
   // Get the overall volume (between 0 and 1.0)
   // console.log(to_be_shown);
   let volume = input.getLevel()*1.5;
   console.log(volume);
-
+  console.log(patternColor);
   // for (let i = 0; i< spectrum.length; i++){
   //   if (spectrum[i]!=0){
   //     console.log(spectrum[i]);
@@ -51,7 +52,7 @@ function draw() {
   let threshold = 0.01;
   if (volume > threshold) {
     noStroke();
-    fill(255, 204, 0);
+    fill(patternColor);
     let x = random(width);
     let y = random(height);
     let length;
