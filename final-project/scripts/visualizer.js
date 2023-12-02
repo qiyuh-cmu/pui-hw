@@ -6,7 +6,10 @@ let timer = 0;
 let interval = 5000 // 2 seconds
 const btn = document.querySelector('.round');
 let button_status = false;
-let patternColor = "yellow";
+let colorPicker;
+let selectedColor = "yellow";
+
+// window.addEventListener("load", startup, false);
 
 btn.addEventListener('click', () => {
   userStartAudio();
@@ -15,47 +18,50 @@ btn.addEventListener('click', () => {
 })
 
 function setup() {
-    console.log("button clicked");
-    createCanvas(windowWidth, windowHeight);
-    if (!button_status){
-      background("white");
-    }else{
-      background("black");
-    }
-    // Create an Audio input
-    input = new p5.AudioIn();
-    input.start();
-    classifier.classify(gotResult);
+  colorPicker = document.querySelector("#color-picker");
+  colorPicker.value = selectedColor;
+  colorPicker.addEventListener("input", updateFirst, false);
+  colorPicker.select();
+  createCanvas(windowWidth, windowHeight);
+  if (!button_status){
+    background("white");
+  }else{
+    background("black");
+  }
+  // Create an Audio input
+  input = new p5.AudioIn();
+  input.start();
+  classifier.classify(gotResult);
 }
 
+function updateFirst(event) {
+  selectedColor = event.target.value;
+}
+
+
 function draw() {
-  if (selectedColor){
-    patternColor = selectedColor;
-  }
   // Get the overall volume (between 0 and 1.0)
   let volume = input.getLevel()*1.5;
-  // console.log(volume);
-  console.log(patternColor);
   // The louder the volume, the larger the rectangle.
   let threshold = 0.01;
   if (volume > threshold) {
     noStroke();
-    fill(patternColor);
+    fill(selectedColor);
     let x = random(width);
     let y = random(height);
     let length;
     if (volume>0.08){
       length = volume * 800+200;
-      console.log("!!!!!")
+      console.log("loud")
     }
     else if (volume>0.03){
       length = (volume * 400)*1.5;
+      console.log("mid")
     }
     else{
       length = volume * 200;
+      console.log("low")
     }
-    // console.log("length")
-    // console.log(volume,length)
     rect(x, y, length, length);
     setTimeout(() => {
       noStroke();
