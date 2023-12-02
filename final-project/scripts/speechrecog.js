@@ -17,7 +17,7 @@ const options = { probabilityThreshold: 0.7 };
 // Two variable to hold the label and confidence of the result
 let label;
 let confidence;
-let to_be_shown;
+let to_be_shown = null;
 
 function preload() {
   // Load SpeechCommands18w sound classifier model
@@ -44,8 +44,14 @@ function gotResult(error, results) {
   // Show the first label and confidence
   // console.log('Label: ' + results[0].label);
   // console.log('Confidence: ' + nf(results[0].confidence, 0, 2)); // Round the confidence to 0.01
-  if(nf(results[0].confidence, 0, 2)>0.97){
-    to_be_shown = results[0].label;}
+  if(nf(results[0].confidence, 0, 2)>0.98){
+    let detected = nf(results[0].confidence, 0, 2);
+    // if (nf(results[0].confidence, 0, 2) == 
+    to_be_shown = results[0].label;
+    // delay(500);
+  }else {
+    to_be_shown = null;
+  }
   // else{
   //   to_be_shown=undefined;
   // }

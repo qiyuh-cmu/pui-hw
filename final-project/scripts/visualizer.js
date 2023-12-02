@@ -7,7 +7,9 @@ let interval = 5000 // 2 seconds
 const btn = document.querySelector('.round');
 let button_status = false;
 let colorPicker;
-let selectedColor = "yellow";
+let selectedColor = "#FFFF00";
+let speech_recognized=null;
+let volume;
 
 // window.addEventListener("load", startup, false);
 
@@ -34,44 +36,70 @@ function setup() {
   classifier.classify(gotResult);
 }
 
+function updateSpeech(){
+  if (to_be_shown && volume>0.002){
+    speech_recognized = to_be_shown;
+    console.log(speech_recognized);
+  }
+  if (volume<0.004) {
+    speech_recognized = null;
+  }
+  // console.log("volume:"+volume);
+}
+
 function updateFirst(event) {
   selectedColor = event.target.value;
 }
 
 
 function draw() {
+  updateSpeech();
   // Get the overall volume (between 0 and 1.0)
-  let volume = input.getLevel()*1.5;
+  volume = input.getLevel()
+  aug_volume = volume*1.5;
   // The louder the volume, the larger the rectangle.
   let threshold = 0.01;
-  if (volume > threshold) {
+  if (aug_volume > threshold) {
     noStroke();
     fill(selectedColor);
     let x = random(width);
     let y = random(height);
     let length;
-    if (volume>0.08){
-      length = volume * 800+200;
-      console.log("loud")
+    if (aug_volume>0.08){
+      length = aug_volume * 800+200;
+      // console.log("loud");
     }
-    else if (volume>0.03){
-      length = (volume * 400)*1.5;
-      console.log("mid")
+    else if (aug_volume>0.03){
+      length = (aug_volume * 400)*1.5;
+      // console.log("mid");
     }
     else{
-      length = volume * 200;
-      console.log("low")
+      length = aug_volume * 200;
+      // console.log("low");
     }
-    rect(x, y, length, length);
-    setTimeout(() => {
-      noStroke();
-      fill('black');
+    if (speech_recognized){
+      let shown_speech = speech_recognized;
+      textSize(length);
+      text(shown_speech, x, y);
+      setTimeout(() => {
+        noStroke();
+        fill('black');
+        textSize(length);
+        text(shown_speech, x, y);
+      }, 1000);
+    }
+    else {
       rect(x, y, length, length);
-    }, 1000);
+      setTimeout(() => {
+        noStroke();
+        fill('black');
+        rect(x, y, length, length);
+      }, 1000);
+    }
   }
 
   // Graph the overall potential volume, w/ a line at the threshold
-  let y = map(volume, 0, 1, height, 0);
+  let y = map(aug_volume, 0, 1, height, 0);
   let ythreshold = map(threshold, 0, 1, height, 0);
 
   noStroke();
