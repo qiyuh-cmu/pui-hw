@@ -74,7 +74,7 @@ function draw() {
       // console.log("mid");
     }
     else{
-      length = aug_volume * 200;
+      length = aug_volume * 400;
       // console.log("low");
     }
     if (speech_recognized){
