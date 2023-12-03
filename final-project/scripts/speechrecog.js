@@ -18,6 +18,35 @@ const options = { probabilityThreshold: 0.7 };
 let label;
 let confidence;
 let to_be_shown = null;
+let input;
+let analyzer;
+let timer = 0;
+let interval = 5000 // 2 seconds
+const btn = document.querySelector('.round');
+let button_status = false;
+let colorPicker;
+let selectedColor = "#FFFF00";
+
+function setup() {
+  colorPicker = document.querySelector("#color-picker");
+  colorPicker.value = selectedColor;
+  colorPicker.addEventListener("input", updateFirst, false);
+  colorPicker.select();
+  createCanvas(windowWidth, windowHeight);
+  if (!button_status){
+    background("white");
+  }else{
+    background("black");
+  }
+  // Create an Audio input
+  input = new p5.AudioIn();
+  input.start();
+  classifier.classify(gotResult);
+}
+
+function updateFirst(event) {
+  selectedColor = event.target.value;
+}
 
 function preload() {
   // Load SpeechCommands18w sound classifier model
@@ -48,6 +77,7 @@ function gotResult(error, results) {
     let detected = nf(results[0].confidence, 0, 2);
     // if (nf(results[0].confidence, 0, 2) == 
     to_be_shown = results[0].label;
+    console.log(to_be_shown + "*");
     // delay(500);
   }else {
     to_be_shown = null;
