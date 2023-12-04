@@ -72,7 +72,7 @@ function gotResult(error, results) {
   // Show the first label and confidence
   // console.log('Label: ' + results[0].label);
   // console.log('Confidence: ' + nf(results[0].confidence, 0, 2)); // Round the confidence to 0.01
-  if(nf(results[0].confidence, 0, 2)>0.98){
+  if(nf(results[0].confidence, 0, 2)>0.98 && (results[0].label=="one" || results[0].label=="two" || results[0].label=="three")){ // only let it detect three numbers to prevent accident errors
     let detected = nf(results[0].confidence, 0, 2);
     // if (nf(results[0].confidence, 0, 2) == 
     to_be_shown = results[0].label;

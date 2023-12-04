@@ -8,6 +8,13 @@ let speech_recognized=null;
 let volume;
 let button_status = false;
 
+//https://developers.google.com/youtube/player_parameters
+ //use .one to ensure this only happens once
+//  document.querySelector("#playvideo").addEventListener('click', () => {
+//   console.log("asasdjaskdd");
+//   player.playVideo() = Void;
+//  });
+
 btn.addEventListener('click', () => {
   userStartAudio();
   button_status = !button_status;
@@ -26,18 +33,20 @@ btn.addEventListener('click', () => {
 
 
 
+
+
 function updateSpeech(){
   volume = input.getLevel();
-  console.log(volume);
+  // console.log(volume);
   if (to_be_shown && speech_recognized==null && volume>0.004){
     speech_recognized = to_be_shown;
-    console.log("!!!!!!detected: " + speech_recognized);
+    // console.log("!!!!!!detected: " + speech_recognized);
     drawText();
   }
   else if (volume<0.004) {
     speech_recognized = null;
     to_be_shown = null;
-    console.log("xxxxxxxtoo low");
+    // console.log("xxxxxxxtoo low");
   }
   else {
       speech_recognized = null;
@@ -88,7 +97,7 @@ function draw() {
       // else {
         rect(x, y, length, length);
         setTimeout(() => {
-          noStroke();
+          stroke('black');
           fill('black');
           rect(x, y, length, length);
         }, 1000);
@@ -113,10 +122,10 @@ function draw() {
 
 
 function drawText(){
-  for (let i=0; i<=5;i++){
+  // for (let i=0; i<=3;i++){
     let x = random(width);
     let y = random(height);
-    let aug_volume = volume*1.5;
+    let aug_volume = volume*1.2;
     let length = (aug_volume *800)+200;
     let shown_speech = speech_recognized;
     fill(selectedColor);
@@ -124,10 +133,10 @@ function drawText(){
     textSize(length);
     text(shown_speech, x, y);
     setTimeout(() => {
-      noStroke();
+      stroke('black');
       fill('black');
       textSize(length);
       text(shown_speech, x, y);
     }, 1000);
-  }
+  // }
 }
