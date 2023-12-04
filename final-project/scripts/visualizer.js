@@ -71,11 +71,12 @@ function draw() {
       let x = random(width);
       let y = random(height);
       let length;
-      if (aug_volume>0.08){
+      console.log(aug_volume);
+      if (aug_volume>0.3){
         length = aug_volume * 800+200;
         // console.log("loud");
       }
-      else if (aug_volume>0.03){
+      else if (aug_volume>0.15){
         length = (aug_volume * 400)*1.5;
         // console.log("mid");
       }
@@ -95,11 +96,11 @@ function draw() {
       //   }, 1000);
       // }
       // else {
-        rect(x, y, length, length);
+        circle(x, y, length, length);
         setTimeout(() => {
           stroke('black');
           fill('black');
-          rect(x, y, length, length);
+          circle(x, y, length, length);
         }, 1000);
       // }
     }
