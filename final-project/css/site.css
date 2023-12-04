@@ -65,7 +65,6 @@ body {
 
 
 .switch {
-    margin-top:24px;
     position: relative;
     display: inline-block;
     width: 60px;
@@ -124,3 +123,52 @@ body {
   .slider.round:before {
     border-radius: 50%;
   }
+
+  .color, .toggle, .control{
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   gap: 16px;
+  }
+
+  .color{
+    margin-left: 48px;
+  }
+
+  label, p, #color-picker-label{
+    font-size: 24px;
+    color: black;
+  }
+
+  h1{
+    text-align:center;
+    color: black;
+  }
+
+  b{
+    font-weight: 150%;
+  }
+
+  .hide{
+    visibility: hidden;
+  }
+
+
+@media only screen and (max-width:1716px){
+  h1{
+    font-size: 32px;
+  }
+}
+
+@media only screen and (max-width:400px){
+  h1{
+    font-size: 24px;
+  }
+  label, p{
+    font-size: 16px;
+  }
+  .control{
+  margin-top: 24px;
+  }
+}
+

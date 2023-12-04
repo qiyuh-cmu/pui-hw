@@ -23,7 +23,6 @@ let analyzer;
 let timer = 0;
 let interval = 5000 // 2 seconds
 const btn = document.querySelector('.round');
-let button_status = false;
 let colorPicker;
 let selectedColor = "#FFFF00";
 

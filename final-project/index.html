@@ -29,19 +29,23 @@
     </div>
     <main>
       <div class="center">
-        <h1> Turn on the Sound Visualizer for a more immersive video-watching experience</h1>
+        <h1> Enable the <i>Sound Visualizer</i> for an immersive video experience </h1>
         <div class="video">
           <iframe width="560" height="349" src="https://www.youtube.com/embed/2Pcx-dOuGZg?si=Ej0qD1MGNTnZsJlh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>        
         </div>
+        <div class="control">
+          <div class="toggle">
+            <p>Sound Visualizer</p>
+            <label class="switch">
+              <input type="checkbox">
+              <span class="slider round"></span>
+            </label>
+          </div>
 
-        <label class="switch">
-          <input type="checkbox">
-          <span class="slider round"></span>
-        </label>
-
-        <div class="color">
-          <label for="color-picker">Color:</label>
-          <input type="color" value="#ff0000" id="color-picker" />
+          <div class="color">
+            <label for="color-picker" id="color-picker-label">Color:</label>
+            <input type="color" value="#ff0000" id="color-picker" />
+          </div>
         </div>
       <div>
 

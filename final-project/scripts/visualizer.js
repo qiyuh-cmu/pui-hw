@@ -6,10 +6,21 @@
 
 let speech_recognized=null;
 let volume;
+let button_status = false;
 
 btn.addEventListener('click', () => {
   userStartAudio();
   button_status = !button_status;
+  if (button_status){
+    document.querySelector("h1").setAttribute ("class", "hide");
+    document.querySelector("p").style.color="white";
+    document.querySelector("#color-picker-label").style.color="white";
+  }
+  else {
+    document.querySelector("h1").removeAttribute ("class", "hide");
+    document.querySelector("p").style.color="black";
+    document.querySelector("#color-picker-label").style.color="black";
+  }
   setup();
 })
 
@@ -83,7 +94,7 @@ function draw() {
         }, 1000);
       // }
     }
-  }
+  }99
 
   // Graph the overall potential volume, w/ a line at the threshold
   let y = map(aug_volume, 0, 1, height, 0);
