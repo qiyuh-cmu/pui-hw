@@ -63,7 +63,7 @@ function draw() {
   let threshold = 0.01;
   if (!speech_recognized){
     // Get the overall volume (between 0 and 1.0)
-    aug_volume = volume*1.5;
+    aug_volume = volume*1.51;
     // The louder the volume, the larger the rectangle.
     if (aug_volume > threshold) {
       noStroke();
