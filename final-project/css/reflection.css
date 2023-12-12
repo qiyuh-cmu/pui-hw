@@ -1,0 +1,34 @@
+#reflection{
+  margin-top: 7%;
+}
+
+.tab-buttons{
+  margin-top: 32px;
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  justify-content: space-around;
+  border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
+  
+}
+
+#button-intro, #button-design, #button-programming, #button-iteration{
+  background-color: white;
+  font-size: 110%;
+  padding: 1.25%;
+  padding-left:0px;
+  border: none;
+  cursor: pointer;
+}
+
+#button-intro:hover, #button-design:hover, #button-programming:hover, #button-iteration:hover{
+  color: #3f5938;
+}
+#button-intro:focus, #button-design:focus, #button-programming:focus, #button-iteration:focus, #button-faq:focus{
+  color: #3f5938;
+}
+
+.hidden{
+display: none;
+}

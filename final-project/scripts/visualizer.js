@@ -19,21 +19,20 @@ btn.addEventListener('click', () => {
   userStartAudio();
   button_status = !button_status;
   if (button_status){
-    document.querySelector("h1").setAttribute ("class", "hide");
+    document.querySelector("h1").setAttribute ("class", "hide-keep-space");
+    document.querySelector("#reflection-signal").setAttribute ("class", "hide-keep-space");
     document.querySelector("p").style.color="white";
     document.querySelector("#color-picker-label").style.color="white";
   }
   else {
-    document.querySelector("h1").removeAttribute ("class", "hide");
+    document.querySelector("h1").removeAttribute ("class", "hide-keep-space");
+    // document.querySelector(".color").removeAttribute ("class", "hide-keep-space");
+    document.querySelector("#reflection-signal").removeAttribute ("class", "hide-keep-space");
     document.querySelector("p").style.color="black";
     document.querySelector("#color-picker-label").style.color="black";
   }
   setup();
 })
-
-
-
-
 
 function updateSpeech(){
   volume = input.getLevel();
@@ -112,12 +111,12 @@ function draw() {
 
   noStroke();
   fill(175);
-  rect(0, 0, 20, height);
+  rect(0, 0, 20, height-10);
   // Then draw a rectangle on the graph, sized according to volume
   fill(0);
   rect(0, y, 20, y);
   stroke(0);
-  line(0, ythreshold, 19, ythreshold);
+  line(0, ythreshold-10, 19, ythreshold-10);
   // console.log(millis() - timer);
 }
 
