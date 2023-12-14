@@ -1,5 +1,32 @@
 #reflection{
-  margin-top: 7%;
+  margin-top: 0%;
+}
+
+.signal-section{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+p{
+  font-size: 20px;
+  line-height: 1.4;
+  background:white;
+}
+
+.reflection-info{
+  background:white;
+}
+
+#reflection-signal, #id{
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+#reflection-signal{
+  font-size: 18px;
+  color: grey;
 }
 
 .tab-buttons{
@@ -17,18 +44,86 @@
   background-color: white;
   font-size: 110%;
   padding: 1.25%;
-  padding-left:0px;
+  width: 260px;
+  padding:8px;
   border: none;
   cursor: pointer;
 }
 
 #button-intro:hover, #button-design:hover, #button-programming:hover, #button-iteration:hover{
-  color: #3f5938;
+  color: grey;
 }
 #button-intro:focus, #button-design:focus, #button-programming:focus, #button-iteration:focus, #button-faq:focus{
-  color: #3f5938;
+  color: black;
+  background-color: bisque;
 }
 
 .hidden{
 display: none;
+}
+
+.right-content{
+  left:48px;
+  padding-left: 2%;
+  border-left: 1px solid grey;
+}
+
+ol li{
+  font-size: 24px;
+  padding: 12px;
+}
+
+.block-with-line{
+  display: flex;
+  gap: 12px;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  margin-bottom: 12px;
+}
+
+#challenge{
+  margin-bottom: 0px;
+  padding-bottom:0px;
+  }
+
+
+#solution{
+  padding-top: 0%;
+  margin-top: 0px;
+  margin-bottom: 24px;
+}
+
+.left-title{
+  width: 20%;
+}
+
+.left-title h3{
+  margin-right: 16px;
+  font-size: 24px;
+  text-align: right;
+}
+
+
+.right-content{
+  width: 80%;
+}
+
+.iteration-imgs{
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.iteration-description{
+  margin-left: 12px;
+  border-left:1px solid grey;
+  padding-left: 48px;
+}
+
+.before{
+  margin-bottom: 32px;
+}
+
+#iteration-1, #iteration-2{
+  margin-bottom: 64px;
 }

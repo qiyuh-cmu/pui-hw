@@ -20,14 +20,14 @@ btn.addEventListener('click', () => {
   button_status = !button_status;
   if (button_status){
     document.querySelector("h1").setAttribute ("class", "hide-keep-space");
-    document.querySelector("#reflection-signal").setAttribute ("class", "hide-keep-space");
+    // document.querySelector("#reflection-signal").setAttribute ("class", "hide-keep-space");
     document.querySelector("p").style.color="white";
     document.querySelector("#color-picker-label").style.color="white";
   }
   else {
     document.querySelector("h1").removeAttribute ("class", "hide-keep-space");
     // document.querySelector(".color").removeAttribute ("class", "hide-keep-space");
-    document.querySelector("#reflection-signal").removeAttribute ("class", "hide-keep-space");
+    // document.querySelector("#reflection-signal").removeAttribute ("class", "hide-keep-space");
     document.querySelector("p").style.color="black";
     document.querySelector("#color-picker-label").style.color="black";
   }
@@ -50,7 +50,6 @@ function updateSpeech(){
   else {
       speech_recognized = null;
       to_be_shown = null;
-      console.log("not detected");
     // console.log(speech_recognized);
   }
 }

@@ -1,88 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Laughter caption</title>
-    <link rel="stylesheet" type="text/css" href="css/site.css" media="all" />
-    <link rel="stylesheet" type="text/css" href="css/reflection.css" media="all" />
 
-    <script src="scripts/p5.js"></script>
-    <script src="scripts/p5.sound.js"></script>
-    <script src="https://unpkg.com/ml5@latest/dist/ml5.min.js" type="text/javascript"></script>
-    <!-- <script src="scripts/colorPicker.js" defer type="text/javascript"> </script>  -->
+<head>
+  <meta charset="UTF-8">
+  <title>Laughter caption</title>
+  <link rel="stylesheet" type="text/css" href="css/site.css" media="all" />
+  <link rel="stylesheet" type="text/css" href="css/reflection.css" media="all" />
 
-
-    <script src="scripts/speechrecog.js" defer type="text/javascript"> </script>
-    <script src="scripts/visualizer.js" defer type="text/javascript"> </script> 
-    <script src="scripts/tab.js" defer type="text/javascript"> </script> 
+  <script src="scripts/p5.js"></script>
+  <script src="scripts/p5.sound.js"></script>
+  <script src="https://unpkg.com/ml5@latest/dist/ml5.min.js" type="text/javascript"></script>
+  <script src="scripts/speechrecog.js" defer type="text/javascript"> </script>
+  <script src="scripts/visualizer.js" defer type="text/javascript"> </script>
+  <script src="scripts/tab.js" defer type="text/javascript"> </script>
 
 
 
-    
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"></script>
+
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.min.js"></script> -->
 
-  </head>
-  <body>
-    <div class="header">
-      <!-- <h1> Laughter Visualizer </h1> -->
-      <!-- <form action="/action_page.php">
-        <label for="fname">Enter your name:</label>
-        <input type="text" id="fname" name="fname">   
-      </form>  -->
-    </div>
-    <main>
-      <!-- <div class="p5">
-        <div id="p5" ></div>
-      </div>   -->
-      <div class="center">
-        <h1> Enable the <i>Sound Visualizer</i> for an immersive video experience </h1>
-        <!-- <p id="playvideo">Play video</p> -->
-        <div class="video">
-          <iframe width="560" height="349" src="https://www.youtube.com/embed/2Pcx-dOuGZg?si=Ej0qD1MGNTnZsJlh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>        
-        </div>
-        <div class="control">
-          <div class="toggle">
-            <p>Sound Visualizer</p>
-            <label class="switch">
-              <input type="checkbox">
-              <span class="slider round"></span>
-            </label>
-          </div>
+</head>
 
-          <div class="color">
-            <label for="color-picker" id="color-picker-label">Color:</label>
-            <input type="color" value="#ff0000" id="color-picker" />
-          </div>
-        </div>
-      <div>
-
-      <div id="reflection">
-        <div>
-          <a href="index.html" id="reflection-signal">Reflection</a>      
-        </div>
-        <div class="tab-buttons">
-          <button id="button-intro" aria-label="show about">Introduction</button>
-          <button id="button-design" aria-label="show about">Design</button>
-          <button id="button-programming" aria-label="show content">Programming</button>
-          <button id="button-iteration" aria-label="show instructors">Iteration</button>
-        </div>
-        <div id="intro">
-          <p> intro + interaction</p>
-        </div>
-        <div id="design" class="hidden">
-          <p> intro + design</p>
+<body>
+  <div class="header">
+  </div>
+  <main>
+    <div class="center">
+      <h1> Enable the <i>Sound Visualizer</i> for an immersive video experience </h1>
+      <div class="video">
+        <!-- Source: Youtube -->
+        <iframe width="560" height="349" src="https://www.youtube.com/embed/2Pcx-dOuGZg?si=Ej0qD1MGNTnZsJlh"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+      </div>
+      <div class="control">
+        <div class="toggle">
+          <p>Sound Visualizer</p>
+          <label class="switch">
+            <input type="checkbox">
+            <span class="slider round"></span>
+          </label>
         </div>
 
-        <div id="program" class="hidden">
-          <p>external tool</p>
-        </div>
-
-        <div id="iteration" class="hidden">
-          <p> iteration and challenge</p>
+        <div class="color">
+          <label for="color-picker" id="color-picker-label">Color:</label>
+          <input type="color" value="#ff0000" id="color-picker" />
         </div>
       </div>
-    </main>
-  </body>
+      <div>
+
+        <div id="reflection">
+          <div class="signal-section">
+            <p id="reflection-signal">reflection</p>
+            <img src="images/down.png" alt="scroll down icon" class="gallery" width="6%" id="down">
+          </div>
+
+          <div class="reflection-info">
+            <div class="tab-buttons">
+              <button id="button-intro" type="button" autofocus aria-label="show intro" >Introduction</button>
+              <button id="button-design" aria-label="show design">Design</button>
+              <button id="button-programming" aria-label="show programming">Programming</button>
+              <button id="button-iteration" aria-label="show iteration">Iteration</button>
+            </div>
+
+            <div id="intro" >
+              <div class="block-with-line">
+                <div class="left-title">
+                  <h3>Project Purpose</h3>
+                </div>
+                <div class="right-content">
+                  <p>A sound visualizer that generates shapes of varying sizes corresponding to sound volume levels. It aims to enhance traditional video captions for a more engaging watching experience.</p>
+                </div>
+              </div>
+
+              <div class="block-with-line">
+                <div class="left-title">
+                  <h3>Information to convey</h3>
+                </div>
+                <div class="right-content">
+                  <p> While captions aid video accessibility, they're limited to text-based information. Language alone conveys basic content, leaving out other factors like speech volume and background music. </p> 
+                  <p> Color can captivate people and evoke emotions. Hence, I intend to overcome caption limitations through visual representation. </p>
+                </div>
+              </div>
+
+              <div class="block-with-line">
+                <div class="left-title">
+                  <h3>How is it interesting? </h3>
+                </div>
+                <div class="right-content">
+                  <p>Sound visualizer is an uncommon feature on most video platforms, making it an innovative approach to video platforms and sound visualization.</p>
+                </div>
+              </div>
+
+              <div class="block-with-line">
+                <div class="left-title">
+                  <h3>Target Audience</h3>
+                </div>
+                <div class="right-content">
+                  <p>Individuals watching sound-enabled videos on devices capable of sound input. Potential target users would also include individuals with hearing difficulties. although more research is needed on their video-watching experience. </p>
+                </div>
+              </div>
+
+              <div class="block-with-line">
+                <div class="left-title">
+                  <h3>Implication</h3>
+                </div>
+                <div class="right-content">
+                  <p>The sound visualizer could be useful in videos with minimal speech or with factors beyond the content (e.g. a stand-up comedy show where the laughter complements the content). Incorporating a sound classification model within this visualizer, distinguishing between laughter and speech, would enrich the video experience. </p>
+                </div>
+              </div>
+              
+            </div>
+
+            <div id="design" class="hidden">
+              <ol>              
+                <li> Click on the toggle button to activate the sound visualizer </li>
+                <li> Click on the color selector to change the color of the shape </li>
+                <li> Make sounds of different volumes to see visual representations on the screen </li>
+                <li> Say “one” “two” or “three” to see visual representations on the screen (extend the sound if not working).</li>
+                <li> Click on the toggle button to deactivate the feature  </li>
+              </ol>
+            </div>
+
+            <div id="programming" class="hidden">
+              <p>I utilized P5.js and its sound library (specifically the Mic threshold example) for fundamental functionality, along with a speech recognition model for sound classification. I integrated them by running speech recognition first and adding conditions in the visualizer’s JavaScript to display if recognized. Therefore, the system visualizes sound using basic shapes unless it identifies speech. </p>
+              <div class="block-with-line" id="challenge">
+                <div class="left-title">
+                  <h3>Challenge 1</h3>
+                </div>
+                <div class="right-content">
+                  <p>Due to the system’s running time versus the brevity of input sound, it is tricky to control the timing of sending the result of sound classification to the function that handles visualization, resulting in lag or mismatches during speech display.
+                  </p>
+                </div>
+              </div>
+
+              <div class="block-with-line" id="solution">
+                <div class="left-title">
+                  <h3>Solution</h3>
+                </div>
+                <div class="right-content">
+                  <p> I logged in to the console to check the timing of three moments: 1. The model detects a speech to be displayed and stores it as a variable, 2. The visualizer receives this variable 3. The visualizer draws it in the background. </p>
+                </div>
+              </div>
+
+              <div class="block-with-line" id="challenge">
+                <div class="left-title">
+                  <h3>Challenge 2</h3>
+                </div>
+                <div class="right-content">
+                  <p>False positives (where the model mistakenly recognizes speech as the intended target when it is not) would interupt the video-watching experience. 
+                  </p>
+                </div>
+              </div>
+
+              <div class="block-with-line" id="solution">
+                <div class="left-title">
+                  <h3>Solution</h3>
+                </div>
+                <div class="right-content">
+                  <p> To reduce false positives, I limited recognized speech to only "one," "two," and "three," as these are more likely to frequently appear in videos.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+
+            <div id="iteration" class="hidden">
+              <div id="iteration-1">
+                <h3>Changes in tutorial flow: </h3>
+                <div class="iteration-description">
+                  <div class="before">
+                    <p><b>Before:</b> The initial design had a tutorial to explain how the system works </p>
+                    <img src="images/before-tutorial.png" alt="iteration 1 with tutorial" class="gallery" width="45%">
+                  </div>
+
+                  <div class="after">
+                    <p><b>After: </b>
+                      On a video platform, users prioritize watching content and are less inclined to go through tutorials. To address this, I integrated instructions within the feature flow rather than presenting them separately.</p> 
+                    <div class="iteration-imgs">
+                      <!-- Source: drawn by Qiyu -->
+                      <img src="images/after-on.png" alt="final design without tutorial but title" class="gallery" width="45%">
+                      <img src="images/after-off.png" alt="final design with instruction after activated" class="gallery" width="45%">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div id="iteration-2">
+                <h3> Changes in where to display visualization:</h3>
+                <div class="iteration-description">
+                    <p>As the goal is to create a more immersive video-watching experience, I chose the third option as the final design based on results from 3 interviews with CMU MHCI students. </p> 
+                    <div class="iteration-imgs">
+                        <!-- Source: drawn by Qiyu -->
+                      <img src="images/location-before.png" alt="final design without tutorial but title" class="gallery" width="32%">
+                      <img src="images/location-mid.png" alt="final design without tutorial but title" class="gallery" width="32%">
+                      <img src="images/location-final.png" alt="final design with instruction after activated" class="gallery" width="32%">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+  </main>
+</body>
 
 </html>
