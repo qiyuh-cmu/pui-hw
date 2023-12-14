@@ -76,7 +76,7 @@ function gotResult(error, results) {
     let detected = nf(results[0].confidence, 0, 2);
     // if (nf(results[0].confidence, 0, 2) == 
     to_be_shown = results[0].label;
-    console.log(to_be_shown + "*");
+    // console.log(to_be_shown + "*");
     // delay(500);
   }else {
     to_be_shown = null;

@@ -1,55 +1,44 @@
 // Adapted from Learning Processing, Daniel Shiffman
 // learningprocessing.com
 
-
-// window.addEventListener("load", startup, false);
-
-let speech_recognized=null;
+let speech_recognized = null;
 let volume;
 let button_status = false;
-
-//https://developers.google.com/youtube/player_parameters
- //use .one to ensure this only happens once
-//  document.querySelector("#playvideo").addEventListener('click', () => {
-//   console.log("asasdjaskdd");
-//   player.playVideo() = Void;
-//  });
 
 btn.addEventListener('click', () => {
   userStartAudio();
   button_status = !button_status;
-  if (button_status){
-    document.querySelector("h1").setAttribute ("class", "hide-keep-space");
-    // document.querySelector("#reflection-signal").setAttribute ("class", "hide-keep-space");
-    document.querySelector("p").style.color="white";
-    document.querySelector("#color-picker-label").style.color="white";
+  if (button_status) {
+    document.querySelector("h1").setAttribute("class", "hide-keep-space");
+    document.querySelector("p").style.color = "white";
+    document.querySelector("#reflection-signal").style.color = "white";
+    document.querySelector("#color-picker-label").style.color = "white";
   }
   else {
-    document.querySelector("h1").removeAttribute ("class", "hide-keep-space");
-    // document.querySelector(".color").removeAttribute ("class", "hide-keep-space");
-    // document.querySelector("#reflection-signal").removeAttribute ("class", "hide-keep-space");
-    document.querySelector("p").style.color="black";
-    document.querySelector("#color-picker-label").style.color="black";
+    document.querySelector("h1").removeAttribute("class", "hide-keep-space");
+    document.querySelector("p").style.color = "black";
+    document.querySelector("#reflection-signal").style.color = "black";
+    document.querySelector("#color-picker-label").style.color = "black";
   }
   setup();
 })
 
-function updateSpeech(){
+function updateSpeech() {
   volume = input.getLevel();
   // console.log(volume);
-  if (to_be_shown && speech_recognized==null && volume>0.004){
+  if (to_be_shown && speech_recognized == null && volume > 0.004) {
     speech_recognized = to_be_shown;
     // console.log("!!!!!!detected: " + speech_recognized);
     drawText();
   }
-  else if (volume<0.004) {
+  else if (volume < 0.004) {
     speech_recognized = null;
     to_be_shown = null;
     // console.log("xxxxxxxtoo low");
   }
   else {
-      speech_recognized = null;
-      to_be_shown = null;
+    speech_recognized = null;
+    to_be_shown = null;
     // console.log(speech_recognized);
   }
 }
@@ -59,9 +48,9 @@ function draw() {
   speech_recognized = null;
   updateSpeech();
   let threshold = 0.01;
-  if (!speech_recognized){
+  if (!speech_recognized) {
     // Get the overall volume (between 0 and 1.0)
-    aug_volume = volume*1.51;
+    aug_volume = volume * 1.51;
     // The louder the volume, the larger the rectangle.
     if (aug_volume > threshold) {
       noStroke();
@@ -69,16 +58,16 @@ function draw() {
       let x = random(width);
       let y = random(height);
       let length;
-      console.log(aug_volume);
-      if (aug_volume>0.3){
-        length = aug_volume * 800+200;
+      // console.log(aug_volume);
+      if (aug_volume > 0.3) {
+        length = aug_volume * 800 + 200;
         // console.log("loud");
       }
-      else if (aug_volume>0.15){
-        length = (aug_volume * 400)*1.5;
+      else if (aug_volume > 0.15) {
+        length = (aug_volume * 400) * 1.5;
         // console.log("mid");
       }
-      else{
+      else {
         length = aug_volume * 400;
         // console.log("low");
       }
@@ -94,15 +83,15 @@ function draw() {
       //   }, 1000);
       // }
       // else {
+      circle(x, y, length, length);
+      setTimeout(() => {
+        stroke('black');
+        fill('black');
         circle(x, y, length, length);
-        setTimeout(() => {
-          stroke('black');
-          fill('black');
-          circle(x, y, length, length);
-        }, 1000);
+      }, 1000);
       // }
     }
-  }99
+  } 99
 
   // Graph the overall potential volume, w/ a line at the threshold
   let y = map(aug_volume, 0, 1, height, 0);
@@ -110,32 +99,32 @@ function draw() {
 
   noStroke();
   fill(175);
-  rect(0, 0, 20, height-10);
+  rect(0, 0, 20, height - 10);
   // Then draw a rectangle on the graph, sized according to volume
   fill(0);
   rect(0, y, 20, y);
   stroke(0);
-  line(0, ythreshold-10, 19, ythreshold-10);
+  line(0, ythreshold - 10, 19, ythreshold - 10);
   // console.log(millis() - timer);
 }
 
 
-function drawText(){
+function drawText() {
   // for (let i=0; i<=3;i++){
-    let x = random(width);
-    let y = random(height);
-    let aug_volume = volume*1.2;
-    let length = (aug_volume *800)+200;
-    let shown_speech = speech_recognized;
-    fill(selectedColor);
+  let x = random(width);
+  let y = random(height);
+  let aug_volume = volume * 1.2;
+  let length = (aug_volume * 800) + 200;
+  let shown_speech = speech_recognized;
+  fill(selectedColor);
+  stroke('black');
+  textSize(length);
+  text(shown_speech, x, y);
+  setTimeout(() => {
     stroke('black');
+    fill('black');
     textSize(length);
     text(shown_speech, x, y);
-    setTimeout(() => {
-      stroke('black');
-      fill('black');
-      textSize(length);
-      text(shown_speech, x, y);
-    }, 1000);
+  }, 1000);
   // }
 }

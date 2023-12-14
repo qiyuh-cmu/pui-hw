@@ -46,6 +46,9 @@ body {
   position: absolute;
 } 
 
+span{
+  padding: 2px;
+}
 .video{
   position: relative;
   padding-bottom: 50%;   
