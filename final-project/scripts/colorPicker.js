@@ -4,6 +4,7 @@ let selectedColor;
 
 window.addEventListener("load", startup, false);
 
+//handles the activation and deactivation of the toggle button
 function startup() {
   colorPicker = document.querySelector("#color-picker");
   colorPicker.value = defaultColor;

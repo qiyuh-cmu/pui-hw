@@ -67,6 +67,24 @@ display: none;
   border-left: 1px solid grey;
 }
 
+#design .right-content{
+  width:100%;
+}
+
+.disclaimer{
+  font-style: italic;
+  padding: 2px;
+  background: rgb(221, 221, 221);
+  margin-bottom: 32px;
+}
+
+.disclaimer p{
+  font-size: 18px;
+}
+
+ol{
+  margin-bottom: 48px;
+}
 ol li{
   font-size: 24px;
   padding: 12px;

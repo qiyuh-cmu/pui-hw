@@ -17,10 +17,10 @@ const options = { probabilityThreshold: 0.7 };
 // Two variable to hold the label and confidence of the result
 let label;
 let confidence;
-let to_be_shown = null;
+let to_be_shown = null; //whether a speech is detected and to be shown on the screen
 let input;
 let analyzer;
-let timer = 0;
+let timer = 0; 
 let interval = 5000 // 2 seconds
 const btn = document.querySelector('.round');
 let colorPicker;
@@ -52,15 +52,6 @@ function preload() {
   classifier = ml5.soundClassifier('SpeechCommands18w', options);
 }
 
-// function setup() {
-//   // noCanvas();
-//   // Create 'label' and 'confidence' div to hold results
-//   // label = createDiv('Label: ...');
-//   // confidence = createDiv('Confidence: ...');
-//   // Classify the sound from microphone in real time
-//   classifier.classify(gotResult);
-// }
-
 // A function to run when we get any errors and the results
 function gotResult(error, results) {
   // Display error in the console
@@ -68,21 +59,12 @@ function gotResult(error, results) {
     console.error(error);
   }
   // The results are in an array ordered by confidence.
-  // console.log(results);
-  // Show the first label and confidence
-  // console.log('Label: ' + results[0].label);
-  // console.log('Confidence: ' + nf(results[0].confidence, 0, 2)); // Round the confidence to 0.01
+  //results[0].label is the detected speech
+  //nf(results[0].confidence, 0, 2) is the estimated accuracy of detection given by the model
   if(nf(results[0].confidence, 0, 2)>0.98 && (results[0].label=="one" || results[0].label=="two" || results[0].label=="three")){ // only let it detect three numbers to prevent accident errors
     let detected = nf(results[0].confidence, 0, 2);
-    // if (nf(results[0].confidence, 0, 2) == 
     to_be_shown = results[0].label;
-    // console.log(to_be_shown + "*");
-    // delay(500);
   }else {
     to_be_shown = null;
   }
-  // else{
-  //   to_be_shown=undefined;
-  // }
-  // console.log(to_be_shown);
 }
